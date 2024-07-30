@@ -23,4 +23,8 @@ jobs:
           draft: true
           automatic_release_tag: ${{ env.VERSION }}
           files: |
+            Vendor-Frameworks/RxRelay.xcframework.zip
+            /Vendor-Frameworks/RxSwift.xcframework.zip
+            ./Vendor-Frameworks/RxCocoa.xcframework.zip
+            README.md
             *.xcframework.zip
