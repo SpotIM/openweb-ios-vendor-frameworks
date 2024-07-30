@@ -16,11 +16,11 @@ jobs:
           echo github_ref_name: ${{ github.ref_name }}
           VERSION=${{ github.ref_name }}
           echo Version: ${VERSION#*-}
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "VERSION=${VERSION#*-}" >> $GITHUB_ENV
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           draft: true
-          automatic_release_tag: ${VERSION}
+          automatic_release_tag: $VERSION
           files: |
             Vendor-Frameworks/*.xcframework.zip
