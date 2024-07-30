@@ -3,7 +3,7 @@ name: "automatic-pre-release-by-tags"
 on:
   push:
     tags:
-      - "Version *"
+      - "Version-*"
 
 jobs:
   pre-release:
@@ -14,6 +14,6 @@ jobs:
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: true
+          draft: true
           files: |
             Vendor-Frameworks/*.xcframework.zip
