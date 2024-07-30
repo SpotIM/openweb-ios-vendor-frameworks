@@ -6,8 +6,8 @@ on:
       - "Version-*"
 
 jobs:
-  pre-release:
-    name: "Try"
+  release:
+    name: "Create Release"
     runs-on: "ubuntu-latest"
 
     steps:
