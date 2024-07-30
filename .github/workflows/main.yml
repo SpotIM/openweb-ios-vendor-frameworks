@@ -1,0 +1,19 @@
+name: "automatic-pre-release-by-tags"
+
+on:
+  push:
+    tags:
+      - "Version *"
+
+jobs:
+  pre-release:
+    name: "Try"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: true
+          files: |
+            Vendor-Frameworks/*.xcframework.zip
