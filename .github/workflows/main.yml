@@ -13,7 +13,8 @@ jobs:
     steps:
       - name: Set VERSION variable from tag
         run: | 
-          VERSION=${github.ref_name#Version-}
+          echo github_ref_name: ${github.ref_name}
+          VERSION=${github.ref_name#-}
           echo Version: $VERSION
           echo "VERSION=$VERSION" >> $GITHUB_ENV
       - uses: "marvinpinto/action-automatic-releases@latest"
