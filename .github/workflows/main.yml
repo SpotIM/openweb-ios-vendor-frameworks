@@ -11,9 +11,14 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
+      - name: Set VERSION variable from tag
+        run: | 
+          echo "VERSION=${{ github.ref_name }}
+          echo "VERSION=${VERSION:9}"
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           draft: true
+          automatic_release_tag: ${{ VERSION }}
           files: |
             Vendor-Frameworks/*.xcframework.zip
